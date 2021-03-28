@@ -1,6 +1,6 @@
-# from dockertest
-boto3
-Flask==0.12
+# from dockertest comment out for now
+# boto3
+# Flask==0.12
 # from dockertest
 
 # from slack demo

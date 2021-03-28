@@ -1,39 +1,55 @@
-from flask_demo_api import app
+from app import app
 import unittest
 import json
-
+import app as calculations 
 
 class FlaskTest(unittest.TestCase):
-    def test_response1(self):
+
+    # check if reposnding 
+    def test_response(self):
         tester = app.test_client(self)
         response = tester.get('/')
         statuscode = response.status_code
         self.assertEqual(statuscode, 200)
 
-    def test_response(self):
+    # check if function return type josn 
+    def test_json_content(self):
         tester = app.test_client(self)
         response = tester.get('/io')
-        statuscode = response.status_code
-        self.assertEqual(statuscode, 200)
-
-    def test_content_type(self):
-        tester = app.test_client(self)
-        response = tester.get('/io')
-        print(response.content_type)
         self.assertEqual(response.content_type, 'application/json')
 
-    def test_content_data(self):
+
+    # check if function return html website
+    def test_website_content(self):
         tester = app.test_client(self)
-        response = tester.get('/io')
-        self.assertTrue(b'id' in response.data)
+        response = tester.get('/')
+
+        self.assertEqual(response.content_type, 'text/html; charset=utf-8')
 
 
-    def test_content_length(self):
-        tester = app.test_client(self)
-        response = tester.get('/io')
-        temp = json.loads(response.data)['tasks']
+    def test_add(self):
+        self.assertEqual(calculations.add(1,2), 3)
+        self.assertEqual(calculations.add(2,1), 3)
+        self.assertEqual(calculations.add(0,2), 2)
+        self.assertEqual(calculations.add(1,-1), 0)
 
-        self.assertGreater(len(temp),0,msg='Not Populated')
+
+    def test_subtract(self):
+        self.assertEqual(calculations.subtract(1,2), -1)
+        self.assertEqual(calculations.subtract(2,1), 1)
+        self.assertEqual(calculations.subtract(4,0), 4)
+        self.assertEqual(calculations.subtract(1,-1), 2)
+        self.assertEqual(calculations.subtract(-1,2), -3)
+
+
+    def test_multiply(self):
+        self.assertEqual(calculations.multiply(1,2), 2)
+        self.assertEqual(calculations.multiply(2,1), 2)
+        self.assertEqual(calculations.multiply(1,0), 0)
+        self.assertEqual(calculations.multiply(1,-4), -4)
+        self.assertEqual(calculations.multiply(-1,-5), 5)
+
+
 
 if __name__ == '__main__':
     unittest.main()

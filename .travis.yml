@@ -3,35 +3,37 @@ language: python
 # from slack demo
 python:
   - "3.7"
-install: "pip install -r requirement.txt"
+install: "pip install -r requirements.txt"
 # from slack demo
 
 services:
 - docker
 
 script:
-- docker image build -t kazirys21/dockertest1 .
+# from docker commented out for now
+# - docker image build -t kazirys21/dockertest1 .
 # from slack demo
 - coverage run unittest_api.py
 # from slack demo
 
 after_success:
   #log in to docker CLI
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+#   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   #take built images and push to DOcker hub
-  - docker push kazirys21/dockertest1
+#   - docker push kazirys21/dockertest1
   #test
   # from slack demo
   - bash <(curl -s https://codecov.io/bash)
   # from slack demo
 
-deploy:
-  provider: elasticbeanstalk
-  region: "us-east-1"
-  app: "dtest"
-  env: "Dtest-env"
-  bucket_name: "elasticbeanstalk-us-east-1"
-  on:
-    branch: master
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: $AWS_SECRET_KEY
+# docker comment out for now
+# deploy:
+#   provider: elasticbeanstalk
+#   region: "us-east-1"
+#   app: "dtest"
+#   env: "Dtest-env"
+#   bucket_name: "elasticbeanstalk-us-east-1"
+#   on:
+#     branch: master
+#   access_key_id: $AWS_ACCESS_KEY
+#   secret_access_key: $AWS_SECRET_KEY
