@@ -1,0 +1,10 @@
+# from dockertest
+boto3
+Flask==0.12
+# from dockertest
+
+# from slack demo
+Flask
+requests
+coverage
+# from slack demo
