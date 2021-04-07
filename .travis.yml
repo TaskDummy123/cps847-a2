@@ -31,10 +31,10 @@ after_success:
 # docker comment out for now
 deploy:
   provider: elasticbeanstalk
-  region: "us-east-1"
+  region: "us-east-2"
   app: "cps847-a2"
   env: "Cps847a2-env"
-  bucket_name: "elasticbeanstalk-us-east-1"
+  bucket_name: "elasticbeanstalk-us-east-2"
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
