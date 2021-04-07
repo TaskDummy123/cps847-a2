@@ -11,11 +11,11 @@ services:
 
 script:
 # from docker commented out for now
-
+- coverage run unittest_api.py
 - docker image build -t TaskDummy123/cps847-a2 .
 # - docker image build -t kazirys21/dockertest1 .
 # from slack demo
-- coverage run unittest_api.py
+
 # from slack demo
 
 after_success:
