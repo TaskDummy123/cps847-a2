@@ -14,7 +14,7 @@ script:
 - coverage run unittest_api.py
 - docker image build -t taskdummy123/cps847-a2 .
 # - docker image build -t kazirys21/dockertest1 .
-# from slack demolkjbnkjsbdaf
+# from slack demolkjbnkjsbdafsfsdfsdfds
 
 # from slack demo
 
