@@ -18,7 +18,7 @@ after_success:
   #take built images and push to Docker hub
   # - docker push taskdummy123/cps847-a2
   - docker push cathyliudev/cps847-a2-docker
-  # code coverage test
+  # code coverage testasdasd
   - bash <(curl -s https://codecov.io/bash)
 
 
