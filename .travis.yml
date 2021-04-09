@@ -17,7 +17,7 @@ after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   #take built images and push to Docker hub
   # - docker push taskdummy123/cps847-a2
-  - docker push cathyliudev/cps847-a2-docker
+  - docker push cathyliudev/cps847-a2-docker:tag1
   # code coverage testasdasd
   - bash <(curl -s https://codecov.io/bash)
 
