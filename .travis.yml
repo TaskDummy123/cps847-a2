@@ -38,5 +38,5 @@ deploy:
   env: "Cps847a2-env"
   bucket_name: "elasticbeanstalk-us-east-2-493246452076"
   on:
-    branch: master
+    branch: main
 
