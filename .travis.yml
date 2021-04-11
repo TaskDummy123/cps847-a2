@@ -10,7 +10,7 @@ services:
 
 script:
 - coverage run unittest_api.py
-- docker image build -t taskdummy123/cps847-a2 .
+- docker image build -t cathyliudev/cps847-a2 .
 
 after_success:
   #log in to docker CLI
