@@ -10,13 +10,13 @@ services:
 
 script:
 - coverage run unittest_api.py
-- docker image build -t cathyliudev/cps847-a2 .
+- docker image build -t cps847-a2 .
 
 after_success:
   #log in to docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   #take built images and push to Docker hub
-  - docker push cathyliudev/cps847-a2
+  - docker push cathyliudev/cps847-a2-docker:cps847-a2
   # - docker push cathyliudev/cps847-a2-docker:latest
   # code coverage testasdasd
   - bash <(curl -s https://codecov.io/bash)
